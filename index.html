@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width">
     <meta name="format-detection" content="telephone=no,email=no,address=no">
     <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP:200&display=swap" rel="stylesheet">
     <style media="screen">
+      body {
+        font-family: 'Noto Serif JP', serif;
+      }
+
       * {
         margin: 0;
         padding: 0;
-      }
-      .none {
-        display: none;
       }
 
       #container {
@@ -28,7 +30,6 @@
                 transition: background-image 2.5s;
       }
 
-
       #clock {
         padding: 10px;
         position: absolute;
@@ -39,11 +40,11 @@
       }
       #clock .time {
         font-size: calc((115% + 0.5vw) * 3);
-        line-height: calc(95% + 0.5vw);
+        line-height: calc(105% + 0.5vw);
       }
       #clock .date {
         font-size: calc((115% + 0.5vw) * 1.2);
-        line-height: calc(95% + 0.5vw);
+        line-height: calc(105% + 0.5vw);
       }
 
       #imageSwitch {
@@ -136,6 +137,10 @@
         {"url":'./images/003.png',"idol":[14],"center":[50,50]},
       ];
       let slideIndex = 0;
+
+      let sortList = [];
+      let sortListStr = '0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18';
+
       let sChangeMinutes = new Date().getMinutes();
 
       eImgSwitch.addEventListener('touchstart',(e) => {
@@ -147,7 +152,17 @@
       });
 
       const setting = () => {
-        eOption.classList.toggle('view');
+        const info = '絞り込み (スペース区切り) \n' +
+          '0:真乃 1:灯織 2:めぐる \n' +
+          '3:恋鐘 4:摩美々 5:咲耶 6:結華 7:霧子 \n' +
+          '8:果穂 9:智代子 10:樹里 11:凛世 12:夏葉 \n' +
+          '13:甘奈 14:甜花 15:千雪 \n' +
+          '16:あさひ 17:冬優子 18:愛依';
+
+        let sort = prompt(info, sortListStr);
+        if (sort) {
+          sortListStr = sort
+        }
       };
 
       // 時計変更
@@ -195,7 +210,7 @@
       };
 
       // setting();
-      shuffleList();
+      // shuffleList();
       imageSlide();
       setInterval(function () {
         changeClock();
