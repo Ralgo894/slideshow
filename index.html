@@ -113,12 +113,8 @@
     <div id="container">
       <div id="imageSwitch"></div>
       <div id="clock">
-        <div class="time">
-          <span>00:00</span>
-        </div>
-        <div class="date">
-          <span>1月1日 (月)</span>
-        </div>
+        <p class="time">00:00</p>
+        <p class="date">1月1日 (月)</p>
       </div>
     </div>
 
@@ -130,25 +126,18 @@
       const eTime = document.querySelector('#clock .time');
       const eDate = document.querySelector('#clock .date');
 
-      let imageList = [
-        {"url":'./images/000.png',"idol":[13,14,15],"center":[50,50]},
-        {"url":'./images/001.png',"idol":[13,14,15],"center":[50,50]},
-        {"url":'./images/002.png',"idol":[14],"center":[50,50]},
-        {"url":'./images/003.png',"idol":[14],"center":[50,50]},
-      ];
+      let imageList = ["https://shinymas.net/wp-content/uploads/2021/01/tenka_p_ssr0.png","https://shinymas.net/wp-content/uploads/2021/01/tenka_p_ssr0_f.png","https://shinymas.net/wp-content/uploads/2019/08/tenka_p_ssr.png","https://shinymas.net/wp-content/uploads/2019/08/tenka_p_ssr_f.png","https://shinymas.net/wp-content/uploads/2019/08/tenka_p_ssr2.png","https://shinymas.net/wp-content/uploads/2019/08/tenka_p_ssr2_f.png","https://shinymas.net/wp-content/uploads/2019/11/tenka_p_ssr3.png","https://shinymas.net/wp-content/uploads/2019/11/tenka_p_ssr3_f.png","https://shinymas.net/wp-content/uploads/2020/04/tenka_p_ssr4.png","https://shinymas.net/wp-content/uploads/2020/04/tenka_p_ssr4_f.png","https://shinymas.net/wp-content/uploads/2021/01/tenka_p_sr0.png","https://shinymas.net/wp-content/uploads/2021/01/tenka_p_sr0_f.png","https://shinymas.net/wp-content/uploads/2019/08/tenka_p_sr.png","https://shinymas.net/wp-content/uploads/2021/01/tenka_p_sr_f.png","https://shinymas.net/wp-content/uploads/2019/08/tenka_p_sr2.png","https://shinymas.net/wp-content/uploads/2019/08/tenka_p_sr2_f.png","https://shinymas.net/wp-content/uploads/2019/08/tenka_p_sr3.png","https://shinymas.net/wp-content/uploads/2019/08/tenka_p_sr3_f.png","https://shinymas.net/wp-content/uploads/2019/08/tenka_p_sr4.png","https://shinymas.net/wp-content/uploads/2019/08/tenka_p_sr4_f.png","https://shinymas.net/wp-content/uploads/2019/12/tenka_p_sr5.png","https://shinymas.net/wp-content/uploads/2019/12/tenka_p_sr5_f.png","https://shinymas.net/wp-content/uploads/2019/08/tenka_p_r.png","https://shinymas.net/wp-content/uploads/2019/08/tenka_p_r_f.png","https://shinymas.net/wp-content/uploads/2019/08/tenka_s_ssr.png","https://shinymas.net/wp-content/uploads/2019/08/tenka_s_ssr2.png","https://shinymas.net/wp-content/uploads/2019/08/tenka_s_ssr3.png","https://shinymas.net/wp-content/uploads/2019/10/tenka_s_ssr4.png","https://shinymas.net/wp-content/uploads/2020/03/tenka_s_ssr5.png","https://shinymas.net/wp-content/uploads/2020/10/tenka_s_ssr6.png","https://shinymas.net/wp-content/uploads/2019/08/tenka_s_sr.png","https://shinymas.net/wp-content/uploads/2019/08/tenka_s_sr2.png","https://shinymas.net/wp-content/uploads/2020/08/tenka_s_sr3.png","https://shinymas.net/wp-content/uploads/2019/08/tenka_s_r.png","https://shinymas.net/wp-content/uploads/2019/08/tenka_s_n.png","https://shinymas.net/wp-content/uploads/2021/01/amana_p_ssr0.png","https://shinymas.net/wp-content/uploads/2021/01/amana_p_ssr0_f.png","https://shinymas.net/wp-content/uploads/2019/08/amana_p_ssr.png","https://shinymas.net/wp-content/uploads/2019/08/amana_p_ssr_f.png","https://shinymas.net/wp-content/uploads/2019/08/amana_p_ssr2.png","https://shinymas.net/wp-content/uploads/2019/08/amana_p_ssr2_f.png","https://shinymas.net/wp-content/uploads/2019/10/amana_p_ssr3.png","https://shinymas.net/wp-content/uploads/2019/10/amana_p_ssr3_f.png","https://shinymas.net/wp-content/uploads/2020/03/amana_p_ssr4.png","https://shinymas.net/wp-content/uploads/2020/03/amana_p_ssr4_f.png","https://shinymas.net/wp-content/uploads/2020/08/amana_p_ssr5.png","https://shinymas.net/wp-content/uploads/2020/08/amana_p_ssr5_f.png","https://shinymas.net/wp-content/uploads/2021/01/amana_p_sr0.png","https://shinymas.net/wp-content/uploads/2021/01/amana_p_sr0_f.png","https://shinymas.net/wp-content/uploads/2019/08/amana_p_sr.png","https://shinymas.net/wp-content/uploads/2021/01/amana_p_sr_f.png","https://shinymas.net/wp-content/uploads/2019/08/amana_p_sr2.png","https://shinymas.net/wp-content/uploads/2019/08/amana_p_sr2_f.png","https://shinymas.net/wp-content/uploads/2019/08/amana_p_sr3.png","https://shinymas.net/wp-content/uploads/2019/08/amana_p_sr3_f.png","https://shinymas.net/wp-content/uploads/2020/04/amana_p_sr4.png","https://shinymas.net/wp-content/uploads/2020/04/amana_p_sr4_f.png","https://shinymas.net/wp-content/uploads/2019/08/amana_p_r.png","https://shinymas.net/wp-content/uploads/2019/08/amana_p_r_f.png","https://shinymas.net/wp-content/uploads/2019/08/amana_s_ssr.png","https://shinymas.net/wp-content/uploads/2019/08/amana_s_ssr2.png","https://shinymas.net/wp-content/uploads/2019/08/amana_s_ssr3.png","https://shinymas.net/wp-content/uploads/2019/08/amana_s_ssr4.png","https://shinymas.net/wp-content/uploads/2020/03/amana_s_ssr5.jpg","https://shinymas.net/wp-content/uploads/2019/08/amana_s_sr.png","https://shinymas.net/wp-content/uploads/2019/08/amana_s_sr2.png","https://shinymas.net/wp-content/uploads/2019/12/amana_s_sr3.png","https://shinymas.net/wp-content/uploads/2019/08/amana_s_r.png","https://shinymas.net/wp-content/uploads/2021/01/chiyuki_p_ssr0.png","https://shinymas.net/wp-content/uploads/2021/01/chiyuki_p_ssr0_f.png","https://shinymas.net/wp-content/uploads/2019/08/chiyuki_p_ssr.png","https://shinymas.net/wp-content/uploads/2019/08/chiyuki_p_ssr_f.png","https://shinymas.net/wp-content/uploads/2019/08/chiyuki_p_ssr2.png","https://shinymas.net/wp-content/uploads/2019/08/chiyuki_p_ssr2_f.png","https://shinymas.net/wp-content/uploads/2019/09/chiyuki_p_ssr3.png","https://shinymas.net/wp-content/uploads/2019/09/chiyuki_p_ssr3_f.png","https://shinymas.net/wp-content/uploads/2020/03/chiyuki_p_ssr4.png","https://shinymas.net/wp-content/uploads/2020/03/chiyuki_p_ssr4_f.png","https://shinymas.net/wp-content/uploads/2020/10/chiyuki_p_ssr5.png","https://shinymas.net/wp-content/uploads/2020/10/chiyuki_p_ssr5_f.png","https://shinymas.net/wp-content/uploads/2021/01/chiyuki_p_sr0.png","https://shinymas.net/wp-content/uploads/2021/01/chiyuki_p_sr0_f.png","https://shinymas.net/wp-content/uploads/2019/08/chiyuki_p_sr.png","https://shinymas.net/wp-content/uploads/2021/01/chiyuki_p_sr_f.png","https://shinymas.net/wp-content/uploads/2019/08/chiyuki_p_sr2.png","https://shinymas.net/wp-content/uploads/2019/08/chiyuki_p_sr2_f.png","https://shinymas.net/wp-content/uploads/2019/08/chiyuki_p_sr3.png","https://shinymas.net/wp-content/uploads/2019/08/chiyuki_p_sr3_f.png","https://shinymas.net/wp-content/uploads/2019/10/chiyuki_p_sr4.png","https://shinymas.net/wp-content/uploads/2019/10/chiyuki_p_sr4_f.png","https://shinymas.net/wp-content/uploads/2019/08/chiyuki_p_r.png","https://shinymas.net/wp-content/uploads/2019/08/chiyuki_p_r_f.png","https://shinymas.net/wp-content/uploads/2019/08/chiyuki_s_ssr.png","https://shinymas.net/wp-content/uploads/2019/08/chiyuki_s_ssr2.png","https://shinymas.net/wp-content/uploads/2019/08/chiyuki_s_ssr3.png","https://shinymas.net/wp-content/uploads/2019/12/chiyuki_s_ssr4.png","https://shinymas.net/wp-content/uploads/2020/03/chiyuki_s_ssr5.png","https://shinymas.net/wp-content/uploads/2020/07/chiyuki_s_ssr6.png","https://shinymas.net/wp-content/uploads/2019/08/chiyuki_s_sr.png","https://shinymas.net/wp-content/uploads/2019/08/chiyuki_s_sr2.png","https://shinymas.net/wp-content/uploads/2020/12/chiyuki_s_sr3.png","https://shinymas.net/wp-content/uploads/2019/08/chiyuki_s_r.png","https://shinymas.net/wp-content/uploads/2021/01/rinze_p_ssr0.png","https://shinymas.net/wp-content/uploads/2021/01/rinze_p_ssr0_f.png","https://shinymas.net/wp-content/uploads/2019/08/rinze_p_ssr.png","https://shinymas.net/wp-content/uploads/2019/08/rinze_p_ssr_f.png","https://shinymas.net/wp-content/uploads/2019/08/rinze_p_ssr2.png","https://shinymas.net/wp-content/uploads/2019/08/rinze_p_ssr2_f.png","https://shinymas.net/wp-content/uploads/2019/09/rinze_p_ssr3.png","https://shinymas.net/wp-content/uploads/2019/09/rinze_p_ssr3_f.png","https://shinymas.net/wp-content/uploads/2019/12/rinze_p_ssr4.png","https://shinymas.net/wp-content/uploads/2019/12/rinze_p_ssr4_f.png","https://shinymas.net/wp-content/uploads/2020/08/rinze_p_ssr5.png","https://shinymas.net/wp-content/uploads/2020/08/rinze_p_ssr5_f.png","https://shinymas.net/wp-content/uploads/2021/01/rinze_p_sr0.png","https://shinymas.net/wp-content/uploads/2021/01/rinze_p_sr0_f.png","https://shinymas.net/wp-content/uploads/2019/08/rinze_p_sr.png","https://shinymas.net/wp-content/uploads/2019/08/rinze_p_sr_f.png","https://shinymas.net/wp-content/uploads/2019/08/rinze_p_sr2.png","https://shinymas.net/wp-content/uploads/2019/08/rinze_p_sr2_f.png","https://shinymas.net/wp-content/uploads/2019/08/rinze_p_sr3.png","https://shinymas.net/wp-content/uploads/2019/08/rinze_p_sr3_f.png","https://shinymas.net/wp-content/uploads/2019/08/rinze_p_sr4.png","https://shinymas.net/wp-content/uploads/2019/08/rinze_p_sr4_f.png","https://shinymas.net/wp-content/uploads/2019/08/rinze_p_r.png","https://shinymas.net/wp-content/uploads/2019/08/rinze_p_r_f.png","https://shinymas.net/wp-content/uploads/2019/08/rinze_s_ssr.png","https://shinymas.net/wp-content/uploads/2019/08/rinze_s_ssr2.png","https://shinymas.net/wp-content/uploads/2019/08/rinze_s_ssr3.png","https://shinymas.net/wp-content/uploads/2020/04/rinze_s_ssr4.png","https://shinymas.net/wp-content/uploads/2020/12/rinze_s_ssr5.png","https://shinymas.net/wp-content/uploads/2021/01/rinze_s_ssr6.png","https://shinymas.net/wp-content/uploads/2019/08/rinze_s_sr.png","https://shinymas.net/wp-content/uploads/2019/08/rinze_s_sr2.png","https://shinymas.net/wp-content/uploads/2020/02/rinze_s_sr3.png","https://shinymas.net/wp-content/uploads/2019/08/rinze_s_r.png"];
       let slideIndex = 0;
 
       let sortList = [];
       let sortListStr = '0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18';
 
-      let sChangeMinutes = new Date().getMinutes();
-
-      eImgSwitch.addEventListener('touchstart',(e) => {
+      eImgSwitch.addEventListener('click',(e) => {
         imageSlide();
       });
 
-      eClock.addEventListener('touchstart',(e) => {
-        setting();
+      eClock.addEventListener('click',(e) => {
+        // setting();
       });
 
       const setting = () => {
@@ -174,11 +163,6 @@
 
         eTime.textContent = timeText;
         eDate.textContent = dateText;
-
-        if (t.getMinutes()%5 == 0 && t.getMinutes() != sChangeMinutes) {
-          sChangeMinutes = t.getMinutes();
-          imageSlide();
-        }
       };
 
       // 背景画像変更
@@ -186,10 +170,10 @@
         let i = slideIndex % imageList.length;
         let cash = new Image();
         cash.onload = () => {
-          eContainer.style.backgroundImage = `url(${imageList[i].url})`;
+          eContainer.style.backgroundImage = `url(${imageList[i]})`;
           slideIndex++;
         };
-        cash.src = imageList[i].url;
+        cash.src = imageList[i];
       };
 
       // 画像URLリストをシャッフル
@@ -210,11 +194,16 @@
       };
 
       // setting();
-      // shuffleList();
+      shuffleList();
       imageSlide();
+      // 時計
       setInterval(function () {
         changeClock();
       }, 100);
+      // slide切り替え
+      setInterval(() => {
+        imageSlide();
+      }, 60000);
     </script>
   </body>
 </html>
